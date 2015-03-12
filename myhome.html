@@ -50,6 +50,16 @@
     <!-- The fav icon -->
     <link rel="shortcut icon" href="img/favicon.ico">
 
+    <!-- Initial the page -->
+    <!-- Get the username from session Get the userinfo from the DB -->
+    <!-- jquery ajax php -->
+    <script>
+        $(document).ready(function(){
+         $.get("get_homedata.php",{homedata:""},function(data,textStatus){
+            $("#username").append(data);
+         });
+     });
+    </script>
 </head>
 
 <body>
@@ -69,7 +79,9 @@
             <!-- user dropdown starts -->
             <div class="btn-group pull-right">
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <i class="glyphicon glyphicon-user"></i><span class="hidden-sm hidden-xs"> admin</span>
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span id="username" class="hidden-sm hidden-xs"></span>
+                    <p>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
